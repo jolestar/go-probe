@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+echo "Release go-probe linux version ..."
+mkdir -p bin/linux
+env GOOS=linux GOARCH=amd64 go build -o bin/linux/go-probe .
+tar -C bin/linux/ -czf bin/linux/go-probe-linux-amd64.tar.gz go-probe
+
+echo "Release go-probe darwin version ..."
+mkdir -p bin/darwin
+env GOOS=darwin GOARCH=amd64 go build -o bin/darwin/go-probe .
+tar -C bin/darwin/ -czf bin/darwin/go-probe-darwin-amd64.tar.gz go-probe
+
+echo "Release go-probe alpine version ..."
+mkdir -p bin/alpine
+docker build -t go-probe_builder -f Dockerfile.build.alpine .
+docker run -ti --rm -v $(pwd):/app go-probe_builder ./build bin/alpine/go-probe
+tar -C bin/alpine/ -czf bin/alpine/go-probe-alpine-amd64.tar.gz go-probe
+
+ls -lh bin/*
