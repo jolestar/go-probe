@@ -235,7 +235,7 @@ func init() {
 	if initErr != nil {
 		panic(initErr)
 	}
-	resultTemplate, initErr = template.New("resultTemplate").Parse(`<h2>{{.Name}}</h2><table>{{range $k,$v := .Data}}<tr><td>{{$k}}</td><td>{{$v}}</td></tr>{{end}}</table>`)
+	resultTemplate, initErr = template.New("resultTemplate").Parse(`<h2>{{.Name}}</h2><h4>{{.Summary}}</h4><table>{{range $k,$v := .Data}}<tr><td>{{$k}}</td><td>{{$v}}</td></tr>{{end}}</table>`)
 	if initErr != nil {
 		panic(initErr)
 	}

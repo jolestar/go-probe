@@ -11,6 +11,7 @@ import (
 	"os"
 	"strings"
 	"net/http"
+	"github.com/shirou/gopsutil/mem"
 )
 
 func init() {
@@ -20,6 +21,7 @@ func init() {
 	single.Register("load-avg", LoadAvgFunc)
 	single.Register("network-info", NetworkInfoFunc)
 	single.Register("request-info", RequestInfoFunc)
+	single.Register("memory-info", MemoryInfoFunc)
 }
 
 func EnvFunc(_ context.Context) (*Result, error) {
@@ -61,6 +63,20 @@ func CpuInfoFunc(_ context.Context) (*Result, error) {
 	return result, nil
 }
 
+func MemoryInfoFunc(_ context.Context) (*Result, error) {
+	result := NewResult("memory-info")
+	info, err := mem.VirtualMemory()
+	if err != nil {
+		return nil, err
+	}
+	result.Summary = fmt.Sprintf("Total: %v, Free:%v, UsedPercent:%f%%", info.Total, info.Free, info.UsedPercent)
+	s := structs.New(info)
+	for k, v := range s.Map() {
+		result.Data[k] = fmt.Sprintf("%v", v)
+	}
+	return result, nil
+}
+
 func LoadAvgFunc(_ context.Context) (*Result, error) {
 	result := NewResult("load-avg")
 	info, err := load.Avg()
@@ -81,21 +97,23 @@ func NetworkInfoFunc(_ context.Context) (*Result, error) {
 		return nil, err
 	}
 	for _, f := range faces {
-		result.Data[f.Name] = fmt.Sprintf("%+v", f)
+		addrs, _ := f.Addrs()
+		val := fmt.Sprintf("Index:%d Flags:%v HardwareAddr:%s Addrs:%v", f.Index, f.Flags, f.HardwareAddr.String(), addrs)
+		result.Data[f.Name] = val
 	}
 	return result, nil
 }
 
-func RequestInfoFunc(ctx context.Context) (*Result, error){
+func RequestInfoFunc(ctx context.Context) (*Result, error) {
 	result := NewResult("request-info")
 	request := ctx.Value("request")
 	if httpRequest, ok := request.(*http.Request); ok {
 		result.Data["RemoteAddr"] = httpRequest.RemoteAddr
-		for key, vals := range httpRequest.Header{
+		for key, vals := range httpRequest.Header {
 			var value string
 			if len(vals) == 1 {
 				value = vals[0]
-			}else {
+			} else {
 				value = fmt.Sprintf("%v", vals)
 			}
 			result.Data["Header"+key] = value

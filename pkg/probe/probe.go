@@ -8,14 +8,15 @@ import (
 	"sync"
 )
 
-var single = new()
+var single = newProbe()
 
-func new() *Probe {
+func newProbe() *Probe {
 	return &Probe{probeFuncs: map[string]ProbeFunc{}, lock: sync.RWMutex{}}
 }
 
 type Result struct {
 	Name string            `json:"name"`
+	Summary string 	`json:"summary"`
 	Data map[string]string `json:"data"`
 }
 
