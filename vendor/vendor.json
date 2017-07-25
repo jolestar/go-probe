@@ -39,10 +39,10 @@
 			"revisionTime": "2013-05-24T08:13:38Z"
 		},
 		{
-			"checksumSHA1": "xF+WqeL9eAlbUkiO2bLghMQzO4k=",
+			"checksumSHA1": "Ow/mLkfVIZgMOXE6aPSdPiDLJ6c=",
 			"path": "github.com/gorilla/mux",
-			"revision": "acf3be1b335c8ce30b2c8d51300984666f0ceefa",
-			"revisionTime": "2016-03-07T22:01:44Z",
+			"revision": "bcd8bc72b08df0f70df986b97f95590779502d31",
+			"revisionTime": "2017-05-21T04:50:13Z",
 			"tree": true
 		},
 		{
