@@ -1,0 +1,97 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "qtjd74+bErubh+qyv3s+lWmn9wc=",
+			"path": "github.com/StackExchange/wmi",
+			"revision": "ea383cf3ba6ec950874b8486cd72356d007c768f",
+			"revisionTime": "2017-04-10T19:29:09Z"
+		},
+		{
+			"checksumSHA1": "40Ns85VYa4smQPcewZ7SOdfLnKU=",
+			"path": "github.com/fatih/structs",
+			"revision": "7e5a8eef611ee84dd359503f3969f80df4c50723",
+			"revisionTime": "2017-06-12T12:55:44Z",
+			"tree": true
+		},
+		{
+			"checksumSHA1": "aY/VxJdKPmQKln9/kKc/zxZcR6Y=",
+			"path": "github.com/go-ole/go-ole",
+			"revision": "085abb85892dc1949567b726dff00fa226c60c45",
+			"revisionTime": "2017-07-12T17:44:59Z",
+			"tree": true
+		},
+		{
+			"path": "github.com/go-ole/go-ole/oleutil",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "fqOeX6hfVZtiqrpyFf3QHyXfwFI=",
+			"path": "github.com/gonuts/commander",
+			"revision": "f8ba4e959ca914268227c3ebbd7f6bf0bb35541a",
+			"revisionTime": "2014-02-05T14:10:49Z"
+		},
+		{
+			"checksumSHA1": "EtSsEEeO8SdIjdyBdHdidmEwNvM=",
+			"path": "github.com/gonuts/flag",
+			"revision": "741a6cbd37a30dedc93f817e7de6aaf0ca38a493",
+			"revisionTime": "2013-05-24T08:13:38Z"
+		},
+		{
+			"checksumSHA1": "xF+WqeL9eAlbUkiO2bLghMQzO4k=",
+			"path": "github.com/gorilla/mux",
+			"revision": "acf3be1b335c8ce30b2c8d51300984666f0ceefa",
+			"revisionTime": "2016-03-07T22:01:44Z",
+			"tree": true
+		},
+		{
+			"checksumSHA1": "Fdwr+DDDCpcZNYjFmz8WOdqoGxo=",
+			"path": "github.com/shirou/gopsutil",
+			"revision": "aa0a3bce9d1f4efc710ed812f19f77851da2eedd",
+			"revisionTime": "2017-07-02T15:10:39Z",
+			"tree": true,
+			"version": "v2.17.06",
+			"versionExact": "v2.17.06"
+		},
+		{
+			"checksumSHA1": "Nve7SpDmjsv6+rhkXAkfg/UQx94=",
+			"path": "github.com/shirou/w32",
+			"revision": "bb4de0191aa41b5507caa14b0650cdbddcd9280b",
+			"revisionTime": "2016-09-30T03:27:40Z"
+		},
+		{
+			"checksumSHA1": "Bn333k9lTndxU3D6n/G5c+GMcYY=",
+			"path": "github.com/stretchr/testify/assert",
+			"revision": "f390dcf405f7b83c997eac1b06768bb9f44dec18",
+			"revisionTime": "2016-01-09T20:38:47Z",
+			"tree": true
+		},
+		{
+			"checksumSHA1": "aCgvDARanQuXCa7SjU7aCsUVhns=",
+			"path": "github.com/yunify/metad/atomic",
+			"revision": "fa1d884ec82d86b67b2ad6bc329fdcb7b43cecf8",
+			"revisionTime": "2017-06-12T02:55:11Z"
+		},
+		{
+			"checksumSHA1": "fBCC5ewz5BW6d6vRKlTzfeffiIY=",
+			"path": "golang.org/x/sys/unix",
+			"revision": "c4489faa6e5ab84c0ef40d6ee878f7a030281f0f",
+			"revisionTime": "2017-07-20T20:22:48Z"
+		},
+		{
+			"checksumSHA1": "Pki0iA65Dtsjh4gtabPkp/lOa2I=",
+			"path": "golang.org/x/sys/windows",
+			"revision": "c4489faa6e5ab84c0ef40d6ee878f7a030281f0f",
+			"revisionTime": "2017-07-20T20:22:48Z"
+		},
+		{
+			"checksumSHA1": "fALlQNY1fM99NesfLJ50KguWsio=",
+			"path": "gopkg.in/yaml.v2",
+			"revision": "cd8b52f8269e0feb286dfeef29f8fe4d5b397e0b",
+			"revisionTime": "2017-04-07T17:21:22Z",
+			"tree": true
+		}
+	],
+	"rootPath": "github.com/jolestar/go-probe"
+}
