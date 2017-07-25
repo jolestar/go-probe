@@ -1,11 +1,10 @@
 FROM golang:1.8.3-alpine
 
 ENV GOPATH /go
+RUN apk --update add bash git
 
 RUN mkdir -p "$GOPATH/src/" "$GOPATH/bin" && chmod -R 777 "$GOPATH" && \
-    mkdir -p /go/src/github.com/jolestar/go-probe
-
-RUN apk --update add bash git && \
+    mkdir -p /go/src/github.com/jolestar/go-probe && \
     ln -s /go/src/github.com/jolestar/go-probe /app
 
 WORKDIR /app

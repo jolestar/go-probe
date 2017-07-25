@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+OUTPUT=${1:-bin/go-probe}
+
+echo "Building go-probe ..."
+mkdir -p bin
+go build -o $OUTPUT .
