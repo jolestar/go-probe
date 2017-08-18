@@ -149,14 +149,14 @@ func (f *Frame) Serve() {
 }
 
 func (f *Frame) requestLog(requestID string, req *http.Request, status int, elapsed time.Duration, len int) {
-	log.Printf("%s\t%s\t%s\t%s\t%v\t%v\t%v\t%v\n", requestID, req.Method, f.requestIP(req), req.URL.RequestURI(), req.ContentLength, status, int64(elapsed.Seconds()*1000), len)
+	log.Printf("%s %s %s %s %v %v %v %v\n", requestID, req.Method, f.requestIP(req), req.URL.RequestURI(), req.ContentLength, status, int64(elapsed.Seconds()*1000), len)
 }
 
 func (f *Frame) errorLog(requestID string, req *http.Request, status int, msg string) {
 	if status == 500 {
-		log.Fatalf("ERR\t%s\t%s\t%s\t%s\t%v\t%v\t%s\n", requestID, req.Method, f.requestIP(req), req.RequestURI, req.ContentLength, status, msg)
+		log.Printf("ERR %s %s %s %s %v %v %s\n", requestID, req.Method, f.requestIP(req), req.RequestURI, req.ContentLength, status, msg)
 	} else {
-		log.Printf("ERR\t%s\t%s\t%s\t%s\t%v\t%v\t%s\n", requestID, req.Method, f.requestIP(req), req.RequestURI, req.ContentLength, status, msg)
+		log.Printf("ERR %s %s %s %s %v %v %s\n", requestID, req.Method, f.requestIP(req), req.RequestURI, req.ContentLength, status, msg)
 	}
 }
 
