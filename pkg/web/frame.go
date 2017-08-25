@@ -148,16 +148,38 @@ func (f *Frame) Serve() {
 	log.Fatal("%v", http.ListenAndServe(f.config.Listen, f.router))
 }
 
-func (f *Frame) requestLog(requestID string, req *http.Request, status int, elapsed time.Duration, len int) {
-	log.Printf("%s %s %s %s %v %v %v %v\n", requestID, req.Method, f.requestIP(req), req.URL.RequestURI(), req.ContentLength, status, int64(elapsed.Seconds()*1000), len)
+type RequestLog struct {
+	RequestID string
+	RequestMethod string
+	RequestIP string
+	RequestURI string
+	RequestContentLength int64
+	ResponseStatus int
+	ResponseTime int64
+	ResponseSize int
 }
 
-func (f *Frame) errorLog(requestID string, req *http.Request, status int, msg string) {
-	if status == 500 {
-		log.Printf("ERR %s %s %s %s %v %v %s\n", requestID, req.Method, f.requestIP(req), req.RequestURI, req.ContentLength, status, msg)
-	} else {
-		log.Printf("ERR %s %s %s %s %v %v %s\n", requestID, req.Method, f.requestIP(req), req.RequestURI, req.ContentLength, status, msg)
+func (f *Frame) requestLog(requestID string, req *http.Request, status int, elapsed time.Duration, len int) {
+	reqLog := RequestLog{
+		RequestID: requestID,
+		RequestMethod: req.Method,
+		RequestIP: f.requestIP(req),
+		RequestURI: req.URL.RequestURI(),
+		RequestContentLength: req.ContentLength,
+		ResponseStatus: status,
+		ResponseTime: int64(elapsed/time.Millisecond),
+		ResponseSize: len,
 	}
+	b, err := json.Marshal(reqLog)
+	if err != nil {
+		log.Printf("Error to marshal reqLog %+v\n", reqLog)
+	}else {
+		log.Printf(string(b))
+	}
+}
+
+func (f *Frame) errorLog(requestID string, status int, msg string) {
+	log.Printf("ERR %s %v %s\n", requestID, status, msg)
 }
 
 func contentType(req *http.Request) int {
