@@ -16,6 +16,7 @@ import (
 	"strings"
 	"time"
 	"github.com/jolestar/go-probe/pkg/httputil"
+	"os"
 )
 
 const (
@@ -174,7 +175,7 @@ func (f *Frame) requestLog(requestID string, req *http.Request, status int, elap
 	if err != nil {
 		log.Printf("Error to marshal reqLog %+v\n", reqLog)
 	}else {
-		log.Printf(string(b))
+		fmt.Fprintln(os.Stderr, string(b))
 	}
 }
 
