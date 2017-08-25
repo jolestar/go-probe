@@ -115,7 +115,7 @@ func (f *Frame) handleWrapper(handler handleFunc) func(w http.ResponseWriter, re
 		if err != nil {
 			status = err.Status
 			respondError(w, req, err.Message, status)
-			f.errorLog(requestID, req, status, err.Message)
+			f.errorLog(requestID, status, err.Message)
 		} else {
 			if result == nil {
 				respondSuccessDefault(w, req)
