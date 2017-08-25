@@ -6,7 +6,7 @@ go:
 - 1.8
 before_install: 
 install:
-- go build .
+- go build . && ./release
 script:
 - go test ./pkg/probe/
 before_deploy:
