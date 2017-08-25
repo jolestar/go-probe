@@ -22,6 +22,13 @@ func init() {
 	single.Register("network-info", NetworkInfoFunc)
 	single.Register("request-info", RequestInfoFunc)
 	single.Register("memory-info", MemoryInfoFunc)
+	single.Register("status", StatusFunc)
+}
+
+func StatusFunc(_ context.Context) (*Result, error) {
+	result := NewResult("status")
+	result.Data["status"] = "ok"
+	return result, nil
 }
 
 func EnvFunc(_ context.Context) (*Result, error) {
@@ -34,6 +41,7 @@ func EnvFunc(_ context.Context) (*Result, error) {
 	}
 	return result, nil
 }
+
 
 func HostInfoFunc(_ context.Context) (*Result, error) {
 	result := NewResult("host-info")
