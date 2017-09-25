@@ -8,4 +8,4 @@ COPY bin/alpine/go-probe /usr/bin/
 
 EXPOSE 80
 
-ENTRYPOINT ["/usr/bin/go-probe"]
+CMD ["/usr/bin/go-probe"]
