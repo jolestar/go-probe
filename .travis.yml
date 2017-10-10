@@ -27,5 +27,5 @@ after_success:
 - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
 - docker build -t jolestar/go-probe .
 - if [ "$TRAVIS_BRANCH" == "master" ]; then docker push jolestar/go-probe; else echo
-  $TRAVIS_BRANCH; docker tag jolestar/go-probe qingcloud/go-probe:$TRAVIS_BRANCH;
+  $TRAVIS_BRANCH; docker tag jolestar/go-probe jolestar/go-probe:$TRAVIS_BRANCH;
   docker push jolestar/go-probe:$TRAVIS_BRANCH; fi
