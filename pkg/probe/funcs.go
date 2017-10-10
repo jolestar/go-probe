@@ -14,7 +14,7 @@ import (
 	"github.com/shirou/gopsutil/mem"
 )
 
-const  version  = "v0.1"
+const  version  = "v0.2"
 
 func init() {
 	single.Register("env", EnvFunc)
