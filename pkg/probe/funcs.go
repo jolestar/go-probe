@@ -14,6 +14,8 @@ import (
 	"github.com/shirou/gopsutil/mem"
 )
 
+const  version  = "v0.1"
+
 func init() {
 	single.Register("env", EnvFunc)
 	single.Register("host-info", HostInfoFunc)
@@ -28,6 +30,7 @@ func init() {
 func StatusFunc(_ context.Context) (*Result, error) {
 	result := NewResult("status")
 	result.Data["status"] = "ok"
+	result.Data["version"] = version
 	return result, nil
 }
 
