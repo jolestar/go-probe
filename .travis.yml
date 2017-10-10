@@ -17,9 +17,9 @@ deploy:
   api_key:
     secure: dw/uogcspASiZZCdIMS5ujD7YSpHPmqKk5d1I/pl68dLh/h0ZbxK5EfpaRUn6hYZkzLXvpQZN33IiOC6LkOvV1ke3zTHj+E5taAOjnDbUmRMDx+J/LX4PutAbcgLm52QtHUvquOAzV7aFFabdy8E3+UH7p6jTg1WYaC7fBjtSyQkhY5g56/Ps5RH6axDawx04DLr7pxSLYQS6a1QpjhSvoqVcqqi9n+OtiLf1VOwCBSkXtrsN5pKXSLEXLU1ZzhLUuMfxYEDVHwg2k2XkZhYCZeRH4exe++d5volGmFpF4KwNj3MEMCCMe+8i6q3Bz0AYwSyDwKOEqOCuT/m/ZkUbZ9mfXPx4wyUp/FRsjcSE1kCR7BsVV6tLk3Ehsz3K3bWy52tDXUJ+arpMsnp/6JpiJoZHItvJsjoduX82PcUHvOdnH/0IDccf7RtqMFGi/22yp2fBuRzeTKgggbLN0DUuXMWlb6xT3ZCPdV1HrMznGq9WsbutBCftIsH+7jGaiRD6BGw7q2+teEXZECHPpYTQHgYHe/PVmJQqCBU6zi89hMHTzDbDaK6Ua12EHbl/FjuK0dy+2NBUsEM42REeeEr63+HlKdAUIuw7H3EG+xm4yQsxaFKA8sZeiHgkpPZNxq4udj0K7WmehSDDVJCK2N/Gvo5rU6GDZTkkrUZWjaNJOk=
   file:
-    - "bin/linux/metad-linux-amd64.tar.gz"
-    - "bin/darwin/metad-darwin-amd64.tar.gz"
-    - "bin/alpine/metad-alpine-amd64.tar.gz"
+    - "bin/linux/go-probe-linux-amd64.tar.gz"
+    - "bin/darwin/go-probe-darwin-amd64.tar.gz"
+    - "bin/alpine/go-probe-alpine-amd64.tar.gz"
   on:
     repo: jolestar/go-probe
     tags: true
