@@ -6,11 +6,12 @@ import (
 	"log"
 	"os"
 )
-var(
+
+var (
 	listen string
 )
 
-func init()  {
+func init() {
 	flag.StringVar(&listen, "listen", ":80", "Address to listen to (TCP)")
 }
 
